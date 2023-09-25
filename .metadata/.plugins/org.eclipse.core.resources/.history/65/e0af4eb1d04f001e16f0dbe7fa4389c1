@@ -1,0 +1,5 @@
+package com.studentmapping.entity;
+
+public class Student {
+
+}

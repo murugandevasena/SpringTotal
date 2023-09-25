@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;studentmarksheet&apos; to &apos;studentmarksheet-swagger&apos;&#x0D;&#x0A;- Original element: &apos;studentmarksheet&apos;&#x0D;&#x0A;- Renamed element: &apos;studentmarksheet&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;studentmarksheet&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=studentmarksheet" name="studentmarksheet-swagger" references="true" stamp="1695102083760" version="1.0"/>
+</session>

@@ -1,0 +1,25 @@
+package com.studentmapping.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.studentmapping.entity.Student;
+import com.studentmapping.repository.StudentRepository;
+
+@RestController
+@RequestMapping("/student")
+public class StudentController {
+
+	@Autowired
+	StudentRepository studentRepository;
+	
+	@PostMapping("/setOne")
+	public String setOne(@RequestBody Student student) {
+		studentRepository.save(student);
+		return "saved successfully";
+		
+	}
+}

@@ -1,0 +1,5 @@
+package com.studentmapping.repository;
+
+public interface StudentRepository {
+
+}

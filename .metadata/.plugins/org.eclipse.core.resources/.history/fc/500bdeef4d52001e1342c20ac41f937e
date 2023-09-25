@@ -1,0 +1,19 @@
+package com.employeetvs.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.employeetvs.dao.EmployeeDAO;
+import com.employeetvs.entity.Employee;
+
+@Service
+public class EmployeeService {
+
+	@Autowired
+	EmployeeDAO emdao;
+	public String setOne(Employee emp) {
+		// TODO Auto-generated method stub
+		return emdao.setOne(emp);
+	}
+
+}

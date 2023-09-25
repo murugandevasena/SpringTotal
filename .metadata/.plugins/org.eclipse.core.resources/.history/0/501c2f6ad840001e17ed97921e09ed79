@@ -1,0 +1,66 @@
+package com.laptop.service;
+
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.laptop.dao.LapTopDao;
+import com.laptop.entity.LapTop;
+import com.laptop.userdefinedexception.PriceTagNotFoundException;
+import com.laptop.userdefinedexception.SerialNoNotFoundException;
+
+@Service
+public class LapTopService {
+
+	@Autowired
+	LapTopDao lapTopDao;
+
+	public String setOne(LapTop lapTop) {
+		// TODO Auto-generated method stub
+		return lapTopDao.setOne(lapTop);
+	}
+
+	public String setMany(List<LapTop> lapTop) {
+		// TODO Auto-generated method stub
+		return lapTopDao.setMany(lapTop);
+	}
+
+	public List<LapTop> getAll() {
+		// TODO Auto-generated method stub
+		return lapTopDao.getAll();
+	}
+
+	public LapTop getBySerialNo(int id) throws SerialNoNotFoundException {
+		// TODO Auto-generated method stub
+		List<LapTop> ls = getAll();
+		for (LapTop l : ls) {
+			if (l.getSerialNo() != id) {
+				throw new SerialNoNotFoundException("Mentioned serial number not found in our database.");
+			} else {
+				return lapTopDao.getBySerialNo(id);
+			}
+		}
+		return lapTopDao.getBySerialNo(id);
+	}
+
+	public List<LapTop> getByPrice(int price) throws PriceTagNotFoundException {
+		// TODO Auto-generated method stub
+		List<LapTop> ls = getAll();
+		List<LapTop> ls1 = ls.stream().filter(x->x.getPrice()==price).collect(Collectors.toList());
+		if(ls1.isEmpty()) {
+			throw new PriceTagNotFoundException("No such item with the mentioned price tage");
+		}
+		else {
+			return ls1;
+		}
+	}
+
+	public LapTop updateOne(int id) {
+		// TODO Auto-generated method stub
+		return lapTopDao.updateOne(id);
+	}
+
+}

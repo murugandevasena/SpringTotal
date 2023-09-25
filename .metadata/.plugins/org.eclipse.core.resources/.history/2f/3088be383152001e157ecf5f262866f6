@@ -1,0 +1,5 @@
+package com.employeetvs.repo;
+
+public interface EmployeeRepository {
+
+}

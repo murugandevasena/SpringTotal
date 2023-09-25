@@ -1,0 +1,27 @@
+package com.employeetvs.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name ="emp_details")
+public class Employee {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String name;
+	private String age;
+ 
+	@OneToMany(targetEntity= AccountEntity.class, cascade = CascadeType.ALL)
+	@JoinColumn(name ="acc_id",referencedColumnName = "id")
+	
+	
+	
+	
+	
+}

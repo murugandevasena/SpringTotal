@@ -1,0 +1,40 @@
+package com.security;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Configuration
+@EnableWebSecurity
+public class MyConfiguration extends WebSecurityConfigurerAdapter {
+
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.inMemoryAuthentication().withUser("murugan").password("$2a$10$4.rrtSPGXd6w0wwTN/lm9effuaQmSMz14dqKc6tUcvK2BVrSrIuoy").roles("trainer");
+//
+//	}
+
+// When u want to enter the password directly.
+//	@Bean
+//	public PasswordEncoder getPassword() {
+//		return NoOpPasswordEncoder.getInstance();
+//	}
+	
+	
+	// encrypted one
+//	@Bean
+//	public PasswordEncoder getPassword() {
+//		return new BCryptPasswordEncoder(10);
+//	}
+	
+	
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication().withUser("murugan").password("$2a$10$4.rrtSPGXd6w0wwTN/lm9effuaQmSMz14dqKc6tUcvK2BVrSrIuoy").roles("student").and().withUser("deva").password("$2a$10$L67R/zSGuwp3ImUX0doNl.201AL1ze.TPE1.0q51qZL5mxG5Spx4i").roles("trainer").and().withUser("ram").password("$2a$10$IG/r4siwSv3bfUh.h3ikneaEam/UK9E9p2Gb9ZrsH2Jw/3xuH.cle").roles("manager");
+
+	}
+	
+}

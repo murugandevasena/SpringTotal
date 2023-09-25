@@ -1,0 +1,42 @@
+package com.bookpractice;
+
+public class Book {
+	
+	private long id;
+    private String name;
+    private String Title;
+    
+	public Book(long id, String name, String title) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.Title = title;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getTitle() {
+		return Title;
+	}
+
+	public void setTitle(String title) {
+		this.Title = Title;
+	}
+
+    
+
+}

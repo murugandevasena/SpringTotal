@@ -1,0 +1,23 @@
+package com.bookpractice;
+
+public class BookImpl implements BookService {
+
+	@Override
+	public Book addBook(Book book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String FindBookById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

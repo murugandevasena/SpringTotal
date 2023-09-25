@@ -1,0 +1,44 @@
+  package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoController {
+	@Qualifier("senior")
+	@Autowired
+	Emp emp;
+	
+	@Value("${hello}")
+	private String name ;
+	
+	@GetMapping("/get")
+	public String getDemo() {
+		return "display.html";
+	}
+	
+	@GetMapping("/getHttpStatus")
+	//400-Bad Request
+	//409-Conflict,
+	//424-failed dependency,
+	//509 - bandwidth_limit_exceeded
+	public ResponseEntity<String> getHttpStataus(){
+		 return new ResponseEntity<String>("Not found", HttpStatus.BANDWIDTH_LIMIT_EXCEEDED);
+	}
+	
+	@GetMapping("/getThis")
+	public String getThis() {
+		return emp.getMsg();
+	}
+	
+	@GetMapping("/getName")
+	public String getName() {
+		return name;
+	}
+
+}

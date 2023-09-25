@@ -1,0 +1,42 @@
+package com.employeetvs.accountenitity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "account_details")
+public class AccountEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int acc_id;
+	private long account_num;
+	private long pan_number;
+
+	public int getAcc_id() {
+		return acc_id;
+	}
+
+	public void setAcc_id(int acc_id) {
+		this.acc_id = acc_id;
+	}
+
+	public long getAccount_num() {
+		return account_num;
+	}
+
+	public void setAccount_num(long account_num) {
+		this.account_num = account_num;
+	}
+
+	public long getPan_number() {
+		return pan_number;
+	}
+
+	public void setPan_number(long pan_number) {
+		this.pan_number = pan_number;
+	}
+}

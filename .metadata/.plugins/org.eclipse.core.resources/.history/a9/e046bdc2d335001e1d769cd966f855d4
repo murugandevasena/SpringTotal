@@ -1,0 +1,47 @@
+package com.studentmarksheet.service;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.studentmarksheet.dao.StudentMarkSheetDao;
+import com.studentmarksheet.entity.StudentMarkSheet;
+import com.studentmarksheet.repository.StudentMarkSheetRepository;
+@Service
+public class StudentMarkSheetService {
+
+	@Autowired
+	StudentMarkSheetDao studentMarksheetDao;
+	public String setOne(StudentMarkSheet studentMarkSheet) {
+		// TODO Auto-generated method stub
+		int x= studentMarkSheet.setSem1Total(studentMarkSheet.getSem1Theory()+studentMarkSheet.getSem1Practicals());
+		studentMarkSheet.getSem1Total(x);
+		int y = studentMarkSheet.setSem2Total(studentMarkSheet.getSem2Practicals()+studentMarkSheet.getSem2Theory());
+		studentMarkSheet.getSem2Total(y);
+		
+		return studentMarksheetDao.setOne(studentMarkSheet);
+	}
+	public String setMany(List<StudentMarkSheet> studentMarkSheet) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<studentMarkSheet.size();i++) {
+			int x= studentMarkSheet.get(i).setSem1Total(studentMarkSheet.get(i).getSem1Theory()+studentMarkSheet.get(i).getSem1Practicals());
+			studentMarkSheet.get(i).getSem1Total(x);
+			int y = studentMarkSheet.get(i).setSem2Total(studentMarkSheet.get(i).getSem1Theory()+studentMarkSheet.get(i).getSem2Practicals());
+			studentMarkSheet.get(i).getSem2Total(y);
+		}
+		return studentMarksheetDao.setMany(studentMarkSheet);
+	}
+	public StudentMarkSheet getOne(int id) throws NoSuchElementException {
+		// TODO Auto-generated method stub
+		return studentMarksheetDao.getOne(id);
+	}
+	public List<StudentMarkSheet> getAll() {
+		// TODO Auto-generated method stub
+		return studentMarksheetDao.getAll();
+	}
+	
+	
+
+}

@@ -1,0 +1,18 @@
+package com.interview1.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class OrderService {
+
+	public String setOne(OrderEntity ore) {
+		// TODO Auto-generated method stub
+		List<OrderEntity> ot = new ArrayList<>();
+		ot.add(ore);
+		return "saved suuccessfully";
+	}
+
+}
